@@ -6,6 +6,7 @@ import 'package:flutter/material.dart';
 import 'package:fluttertoast/fluttertoast.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import '../validation/validate.dart';
+import 'list.dart';
 import 'main_screen.dart';
 import 'signup.dart';
 import 'package:http/http.dart' as http;
@@ -136,7 +137,7 @@ class _LoginPageState extends State<LoginPage> {
         Navigator.pushReplacement(
           context,
           MaterialPageRoute(
-            builder: (_) => const MainScreen(),
+            builder: (_) => UserListPage(),
           ),
         );
       });
@@ -153,7 +154,7 @@ class _LoginPageState extends State<LoginPage> {
       Navigator.pushReplacement(
           context,
           MaterialPageRoute(
-            builder: (context) => const MainScreen(),
+            builder: (context) => UserListPage(),
           ));
     } else {
       Fluttertoast.showToast(msg: "The phone or password not correct");

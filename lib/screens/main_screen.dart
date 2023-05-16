@@ -1,7 +1,6 @@
 import 'dart:ui';
 
 import 'package:e_commarce/providers/main_screen_provider.dart';
-import 'package:e_commarce/screens/categories_screen.dart';
 import 'package:e_commarce/screens/login.dart';
 import 'package:e_commarce/screens/profile_screen.dart';
 import 'package:flutter/material.dart';
@@ -13,7 +12,6 @@ import '../helper/Colorsys.dart';
 import '../models/Post.dart';
 import 'SinglePost.dart';
 import 'SingleUser.dart';
-import 'shop_items_screen.dart';
 
 class MainScreen extends StatefulWidget {
   const MainScreen({super.key});

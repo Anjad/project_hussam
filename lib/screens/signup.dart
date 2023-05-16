@@ -1,4 +1,3 @@
-import 'package:e_commarce/screens/otp_scree.dart';
 import 'package:flutter/material.dart';
 import 'package:fluttertoast/fluttertoast.dart';
 
