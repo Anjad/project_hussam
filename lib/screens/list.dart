@@ -1,3 +1,6 @@
+import 'package:e_commarce/data/Sample.dart';
+import 'package:e_commarce/helper/Colorsys.dart';
+import 'package:e_commarce/models/User.dart';
 import 'package:flutter/material.dart';
 
 class UserListPage extends StatefulWidget {
@@ -6,15 +9,16 @@ class UserListPage extends StatefulWidget {
 }
 
 class _UserListPageState extends State<UserListPage> {
-  final List<String> users = [
-    'John Doe',
-    'Jane Smith',
-    'David Johnson',
-    'Emily Davis',
-    'Michael Brown',
+  final List<User> users = [
+    Sample.adel,
+    Sample.anjad,
+    Sample.yazan,
+    Sample.hussam,
+    Sample.yaser,
+    Sample.mohammad,
   ];
 
-  List<String> filteredUsers = [];
+  List<User> filteredUsers = [];
 
   @override
   void initState() {
@@ -25,7 +29,8 @@ class _UserListPageState extends State<UserListPage> {
   void filterUsers(String query) {
     setState(() {
       filteredUsers = users
-          .where((user) => user.toLowerCase().contains(query.toLowerCase()))
+          .where(
+              (user) => user.name.toLowerCase().contains(query.toLowerCase()))
           .toList();
     });
   }
@@ -33,52 +38,156 @@ class _UserListPageState extends State<UserListPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: Colors.white,
       appBar: AppBar(
+        backgroundColor: Colors.white,
         leading: IconButton(
-          icon: Icon(Icons.arrow_back),
+          icon: const Icon(
+            Icons.arrow_back,
+            color: Colors.black,
+          ),
           onPressed: () {
             Navigator.of(context).pop();
           },
         ),
-        title: Text('User List'),
-        backgroundColor: Colors.blue,
+        title: const Text(
+          'User List',
+          style: TextStyle(color: Colors.black),
+        ),
+        centerTitle: true,
         elevation: 0,
       ),
       body: Column(
         children: [
           Container(
-            padding: EdgeInsets.all(16),
-            color: Colors.blue,
+            padding: const EdgeInsets.all(16),
+            color: Colors.white,
             child: TextField(
               onChanged: filterUsers,
+              cursorColor: Colorsys.yellow,
               decoration: InputDecoration(
-                prefixIcon: Icon(Icons.search),
+                prefixIcon: const Icon(
+                  Icons.search,
+                  color: Colors.black,
+                ),
                 hintText: 'Search users',
+                enabledBorder: OutlineInputBorder(
+                  borderSide: BorderSide(color: Colorsys.black),
+                ),
+                focusedBorder: const OutlineInputBorder(
+                  borderSide: BorderSide(color: Colors.black),
+                ),
                 border: OutlineInputBorder(
+                  borderSide: const BorderSide(color: Colors.grey),
                   borderRadius: BorderRadius.circular(8),
                 ),
               ),
-              style: TextStyle(
-                color: Colors.white,
+              style: const TextStyle(
+                color: Colors.black,
                 fontSize: 16,
               ),
             ),
           ),
           Expanded(
-            child: ListView.builder(
+            /*child: ListView.builder(
               itemCount: filteredUsers.length,
               itemBuilder: (context, index) {
                 final user = filteredUsers[index];
                 return ListTile(
                   title: Text(
-                    user,
-                    style: TextStyle(
+                    user.name,
+                    style: const TextStyle(
                       fontWeight: FontWeight.bold,
                       fontSize: 16,
                     ),
                   ),
                   leading: CircleAvatar(
-                    backgroundImage: AssetImage('assets/images/anjad.png'),
+                    backgroundImage: AssetImage(user.profilePicture),
+                  ),
+                );
+              },*/
+            child: GridView.builder(
+              gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
+                crossAxisCount: 2,
+              ),
+              itemCount: filteredUsers
+                  .length, // Replace with the desired number of cards
+              itemBuilder: (BuildContext context, int index) {
+                final user = filteredUsers[index];
+                return Card(
+                  color: Colorsys.lightGrey,
+                  child: Stack(
+                    children: [
+                      Column(
+                        children: [
+                          Container(
+                            height: 80,
+                            color: Colors
+                                .transparent, // Modify the color of the upper container
+                          ),
+                          Expanded(
+                            child: Container(
+                              color: Colors
+                                  .white, // Modify the color of the lower container
+                              child: Column(
+                                children: [
+                                  SizedBox(height: 16),
+                                  Text(
+                                    user.name,
+                                    style: TextStyle(
+                                      fontSize: 16,
+                                      fontWeight: FontWeight.bold,
+                                    ),
+                                  ),
+                                  Text(
+                                    user.username,
+                                    style: TextStyle(
+                                      fontSize: 14,
+                                      color: Colors.grey,
+                                    ),
+                                  ),
+                                  SizedBox(height: 8),
+                                  Row(
+                                    mainAxisAlignment: MainAxisAlignment.center,
+                                    children: [
+                                      Text(
+                                        user.followers.toString(),
+                                        style: TextStyle(
+                                          fontSize: 12,
+                                          color: Colors.grey,
+                                        ),
+                                      ),
+                                      SizedBox(width: 4),
+                                      Text("|"),
+                                      SizedBox(width: 4),
+                                      Text(
+                                        user.following.toString(),
+                                        style: TextStyle(
+                                          fontSize: 12,
+                                          fontWeight: FontWeight.bold,
+                                        ),
+                                      ),
+                                    ],
+                                  ),
+                                ],
+                              ),
+                            ),
+                          ),
+                        ],
+                      ),
+                      Positioned(
+                        top: 20,
+                        left: 50,
+                        right: 50,
+                        child: ClipOval(
+                          child: Image.asset(
+                            user.profilePicture, // Replace with your image
+                            fit: BoxFit.fill,
+                            height: 70,
+                          ),
+                        ),
+                      ),
+                    ],
                   ),
                 );
               },

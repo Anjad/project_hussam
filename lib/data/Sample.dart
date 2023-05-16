@@ -135,6 +135,194 @@ class Sample {
             ]),
       ]);
 
+  static User anjad = User(
+      name: "Anjad Khalaf",
+      username: "@anjad.khalaf",
+      followers: 400,
+      following: 190,
+      profilePicture: "assets/users/anjad.png",
+      collocation: [
+        Collocation(
+            name: "Developer|Designer",
+            tags: ["HD Photos", "Flutter", "Photography"],
+            thumbnail: "assets/photos/two.jpg",
+            posts: [
+              Post(
+                  location: "Amman, Jordan",
+                  dateAgo: "31 min ago",
+                  photos: [
+                    'assets/photos/five.jpg',
+                    'assets/photos/six.jpg',
+                    'assets/photos/seven.jpg',
+                  ],
+                  relatedPhotos: [],
+                  user: User(
+                      name: "name",
+                      profilePicture: "profilePicture",
+                      username: "username",
+                      followers: 0,
+                      following: 0,
+                      collocation: [])),
+              Post(
+                  location: "Amman, Jordan",
+                  dateAgo: "4 week ago",
+                  photos: [
+                    'assets/photos/six.jpg',
+                    'assets/photos/eight.jpg',
+                    'assets/photos/two.jpg',
+                  ],
+                  relatedPhotos: [],
+                  user: User(
+                      name: "name",
+                      profilePicture: "profilePicture",
+                      username: "username",
+                      followers: 0,
+                      following: 0,
+                      collocation: []))
+            ]),
+      ]);
+
+  static User hussam = User(
+      name: "Hussam General",
+      username: "@general.hu",
+      followers: 200,
+      following: 44,
+      profilePicture: "assets/users/hussam.jpg",
+      collocation: [
+        Collocation(
+            name: "Photography",
+            tags: ["HD Photos", "Weather", "Photography"],
+            thumbnail: "assets/photos/two.jpg",
+            posts: [
+              Post(
+                  location: "Amman, Jordan",
+                  dateAgo: "3 min ago",
+                  photos: [
+                    'assets/photos/five.jpg',
+                    'assets/photos/six.jpg',
+                    'assets/photos/seven.jpg',
+                  ],
+                  relatedPhotos: [],
+                  user: User(
+                      name: "name",
+                      profilePicture: "profilePicture",
+                      username: "username",
+                      followers: 0,
+                      following: 0,
+                      collocation: [])),
+              Post(
+                  location: "Amman, Jordan",
+                  dateAgo: "4 week ago",
+                  photos: [
+                    'assets/photos/six.jpg',
+                    'assets/photos/eight.jpg',
+                    'assets/photos/two.jpg',
+                  ],
+                  relatedPhotos: [],
+                  user: User(
+                      name: "name",
+                      profilePicture: "profilePicture",
+                      username: "username",
+                      followers: 0,
+                      following: 0,
+                      collocation: []))
+            ]),
+      ]);
+
+  static User mohammad = User(
+      name: "Mohammad Zoubi",
+      username: "@mohammad.ada",
+      followers: 800,
+      following: 190,
+      profilePicture: "assets/users/mohammad.jpg",
+      collocation: [
+        Collocation(
+            name: "Photography",
+            tags: ["HD Photos", "Weather", "Photography"],
+            thumbnail: "assets/photos/two.jpg",
+            posts: [
+              Post(
+                  location: "Amman, Jordan",
+                  dateAgo: "3 min ago",
+                  photos: [
+                    'assets/photos/five.jpg',
+                    'assets/photos/six.jpg',
+                    'assets/photos/seven.jpg',
+                  ],
+                  relatedPhotos: [],
+                  user: User(
+                      name: "name",
+                      profilePicture: "profilePicture",
+                      username: "username",
+                      followers: 0,
+                      following: 0,
+                      collocation: [])),
+              Post(
+                  location: "Amman, Jordan",
+                  dateAgo: "4 week ago",
+                  photos: [
+                    'assets/photos/six.jpg',
+                    'assets/photos/eight.jpg',
+                    'assets/photos/two.jpg',
+                  ],
+                  relatedPhotos: [],
+                  user: User(
+                      name: "name",
+                      profilePicture: "profilePicture",
+                      username: "username",
+                      followers: 0,
+                      following: 0,
+                      collocation: []))
+            ]),
+      ]);
+
+  static User yaser = User(
+      name: "Yaser Afanah",
+      username: "@yaser.ad",
+      followers: 650,
+      following: 120,
+      profilePicture: "assets/users/yasir.jpg",
+      collocation: [
+        Collocation(
+            name: "Photography",
+            tags: ["HD Photos", "Weather", "Photography"],
+            thumbnail: "assets/photos/two.jpg",
+            posts: [
+              Post(
+                  location: "Amman, Jordan",
+                  dateAgo: "3 min ago",
+                  photos: [
+                    'assets/photos/five.jpg',
+                    'assets/photos/six.jpg',
+                    'assets/photos/seven.jpg',
+                  ],
+                  relatedPhotos: [],
+                  user: User(
+                      name: "name",
+                      profilePicture: "profilePicture",
+                      username: "username",
+                      followers: 0,
+                      following: 0,
+                      collocation: [])),
+              Post(
+                  location: "Amman, Jordan",
+                  dateAgo: "4 week ago",
+                  photos: [
+                    'assets/photos/six.jpg',
+                    'assets/photos/eight.jpg',
+                    'assets/photos/two.jpg',
+                  ],
+                  relatedPhotos: [],
+                  user: User(
+                      name: "name",
+                      profilePicture: "profilePicture",
+                      username: "username",
+                      followers: 0,
+                      following: 0,
+                      collocation: []))
+            ]),
+      ]);
+
   static Post postOne = Post(
       user: yazan,
       location: "Amman, Jordan",

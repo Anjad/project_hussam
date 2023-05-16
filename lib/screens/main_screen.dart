@@ -1,6 +1,5 @@
 import 'dart:ui';
 
-import 'package:e_commarce/providers/main_screen_provider.dart';
 import 'package:e_commarce/screens/login.dart';
 import 'package:e_commarce/screens/profile_screen.dart';
 import 'package:flutter/material.dart';
@@ -29,8 +28,6 @@ class _MainScreenState extends State<MainScreen> {
   @override
   void initState() {
     super.initState();
-    Provider.of<MainScreenProvider>(context, listen: false).getImageBanner();
-    Provider.of<MainScreenProvider>(context, listen: false).getCategories();
   }
 
   @override

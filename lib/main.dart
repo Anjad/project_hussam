@@ -1,19 +1,11 @@
+import 'package:e_commarce/helper/Colorsys.dart';
 import 'package:flutter/material.dart';
-import 'package:provider/provider.dart';
-import 'providers/item_screen_provider.dart';
-import 'providers/main_screen_provider.dart';
-import 'providers/profile_screen_provider.dart';
 import 'screens/splash_screen.dart';
 
 void main() {
-  runApp(MultiProvider(
-    providers: [
-      ChangeNotifierProvider(create: (_) => MainScreenProvider()),
-      ChangeNotifierProvider(create: (_) => ItemsScreenProvider()),
-      ChangeNotifierProvider(create: (_) => ProfileScreenProvider()),
-    ],
-    child: const MyApp(),
-  ));
+  runApp(
+    const MyApp(),
+  );
 }
 
 class MyApp extends StatelessWidget {
@@ -23,7 +15,10 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
-      theme: ThemeData(),
+      theme: ThemeData(
+        primaryColor: Colorsys.orange,
+        accentColor: Colorsys.orange,
+      ),
       home: const SplashScreen(),
     );
   }
