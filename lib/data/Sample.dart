@@ -1,8 +1,11 @@
+import 'package:e_commarce/models/fav_data.dart';
+import 'package:e_commarce/models/fav_data_item.dart';
+
 import '../models/Collocation.dart';
 import '../models/Post.dart';
 import '../models/User.dart';
 
-class Sample {
+class SampleData {
   static User yazan = User(
       name: "Yazan Al-hasson",
       username: "@turboyazan",
@@ -356,4 +359,96 @@ class Sample {
         'assets/photos/four.jpg',
         'assets/photos/five.jpg'
       ]);
+
+  static FavData favData = FavData([
+    FavDataItem(
+      "Job discribtion",
+      "https://assets8.lottiefiles.com/packages/lf20_mf5j5kua.json",
+      [],
+    ),
+    FavDataItem(
+      "Visual identity design",
+      "https://assets7.lottiefiles.com/private_files/lf30_dtrtywag.json",
+      [
+        "Logo",
+        "logotypes",
+        "logo symbols",
+        "Abstract logo marks",
+        "Letterforms",
+        "Lettermarks",
+        "Combination mark",
+        "Mascots",
+        "Emblem logo",
+        "Logo font Arab",
+      ],
+    ),
+    FavDataItem(
+      "Advertising design",
+      "https://assets8.lottiefiles.com/packages/lf20_ab3x3u6a.json",
+      [
+        "Email newsletter templates",
+        "Social media ads(post,vedio)",
+        "Charts",
+        "presentations",
+        "Advertising banners",
+        "Infographic",
+      ],
+    ),
+    FavDataItem(
+      "Colors",
+      "https://assets9.lottiefiles.com/packages/lf20_asu5yx3c.json",
+      [
+        "red",
+        "green",
+        "blue",
+      ],
+    ),
+    FavDataItem(
+      "UI/UX",
+      "https://assets9.lottiefiles.com/packages/lf20_ucB6LY4uTG.json",
+      [
+        "Application design",
+        "Web design",
+      ],
+    ),
+    FavDataItem(
+      "Packaging design",
+      "https://assets7.lottiefiles.com/packages/lf20_7Uo9U8DYDA.json",
+      [
+        "External packaging design",
+        "Internal packaging design"
+            "Branding and labeling design"
+            "Logo and brand mark design",
+      ],
+    ),
+    FavDataItem(
+      "Publications design",
+      "https://assets9.lottiefiles.com/packages/lf20_ijexn0os.json",
+      [
+        "Brochure",
+        "Folder",
+        "Poster",
+        "Catalog",
+        "Menu",
+        "Banner",
+        "Roll Up",
+      ],
+    ),
+    FavDataItem(
+      "Motion Graphic",
+      "https://assets3.lottiefiles.com/packages/lf20_ikzetk03.json",
+      [
+        "Explainer Animation",
+        "Animated Ads",
+        "Animated Logos",
+        "Animated Presentations",
+        "Social Media Motion Graphics",
+        "Digital Interface Motion Graphics",
+        "Whiteboard animation",
+        "Explainer videos",
+        "2D characters",
+        "3D animation",
+      ],
+    ),
+  ]);
 }

@@ -11,6 +11,7 @@ import '../helper/Colorsys.dart';
 import '../models/Post.dart';
 import 'SinglePost.dart';
 import 'SingleUser.dart';
+import 'hh.dart';
 
 class MainScreen extends StatefulWidget {
   const MainScreen({super.key});
@@ -59,6 +60,16 @@ class _MainScreenState extends State<MainScreen> {
         elevation: 0,
         centerTitle: true,
         iconTheme: const IconThemeData(color: Colors.black),
+      ),
+      floatingActionButton: FloatingActionButton(
+        onPressed: () => Navigator.push(
+          context,
+          MaterialPageRoute(
+            builder: (context) => const ScrollableList(),
+          ),
+        ),
+        child: Image.asset("assets/images/swarm.png"),
+        tooltip: "Visual Identity Design",
       ),
       drawer: Drawer(
         child: Column(
@@ -225,8 +236,8 @@ class _MainScreenState extends State<MainScreen> {
                   SizedBox(
                     height: 30,
                   ),
-                  makePost(Sample.postOne),
-                  makePost(Sample.postTwo),
+                  makePost(SampleData.postOne),
+                  makePost(SampleData.postTwo),
                 ],
               ),
             )
