@@ -53,7 +53,7 @@ class _UserListPageState extends State<UserListPage>
           },
         ),
         title: const Text(
-          'User List',
+          'Clients',
           style: TextStyle(color: Colors.black),
         ),
         centerTitle: true,

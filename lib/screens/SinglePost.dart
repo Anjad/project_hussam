@@ -20,7 +20,7 @@ class SinglePost extends StatelessWidget {
         child: Column(
           children: <Widget>[
             Container(
-              padding: EdgeInsets.only(
+              padding: const EdgeInsets.only(
                 top: 70,
                 bottom: 20,
                 right: 20,
@@ -29,7 +29,7 @@ class SinglePost extends StatelessWidget {
               height: height / 2,
               width: double.infinity,
               decoration: BoxDecoration(
-                  borderRadius: BorderRadius.only(
+                  borderRadius: const BorderRadius.only(
                       bottomLeft: Radius.circular(20),
                       bottomRight: Radius.circular(20)),
                   image: DecorationImage(
@@ -51,7 +51,7 @@ class SinglePost extends StatelessWidget {
                           decoration: BoxDecoration(
                               borderRadius: BorderRadius.circular(4),
                               color: Colors.black.withOpacity(0.2)),
-                          child: Center(
+                          child: const Center(
                             child: Icon(
                               Icons.arrow_back_ios,
                               color: Colors.white,
@@ -72,12 +72,12 @@ class SinglePost extends StatelessWidget {
                             backgroundImage:
                                 AssetImage(post.user.profilePicture),
                           ),
-                          SizedBox(
+                          const SizedBox(
                             width: 10,
                           ),
                           Text(
                             post.user.name,
-                            style: TextStyle(
+                            style: const TextStyle(
                                 color: Colors.white,
                                 fontWeight: FontWeight.w600),
                           )
@@ -111,11 +111,11 @@ class SinglePost extends StatelessWidget {
                   Row(
                     children: <Widget>[
                       Image.asset('assets/icons/location.png', scale: 2.2),
-                      SizedBox(
+                      const SizedBox(
                         width: 5,
                       ),
                       Text(
-                        "Kabul, Afghanistan",
+                        "Amman, Jordan",
                         style: TextStyle(
                             fontSize: 13,
                             fontWeight: FontWeight.w600,

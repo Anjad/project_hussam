@@ -1,17 +1,15 @@
 import 'dart:ui';
-
 import 'package:e_commarce/screens/login.dart';
 import 'package:e_commarce/screens/profile_screen.dart';
 import 'package:flutter/material.dart';
-import 'package:provider/provider.dart';
 import 'package:shared_preferences/shared_preferences.dart';
-
 import '../data/Sample.dart';
 import '../helper/Colorsys.dart';
 import '../models/Post.dart';
 import 'SinglePost.dart';
 import 'SingleUser.dart';
-import 'hh.dart';
+import 'list.dart';
+import 'visual_design.dart';
 
 class MainScreen extends StatefulWidget {
   const MainScreen({super.key});
@@ -65,11 +63,12 @@ class _MainScreenState extends State<MainScreen> {
         onPressed: () => Navigator.push(
           context,
           MaterialPageRoute(
-            builder: (context) => const ScrollableList(),
+            builder: (context) => const VisualDesign(),
           ),
         ),
-        child: Image.asset("assets/images/swarm.png"),
+        elevation: 10,
         tooltip: "Visual Identity Design",
+        child: Image.asset("assets/images/swarm.png"),
       ),
       drawer: Drawer(
         child: Column(
@@ -132,10 +131,33 @@ class _MainScreenState extends State<MainScreen> {
                     ),
                     const Divider(),
                     ListTile(
-                      leading: const Icon(Icons.shopping_cart_sharp),
-                      title: const Text("Order History"),
+                      leading: const Icon(Icons.group),
+                      title: const Text("Client"),
                       onTap: () {
                         Navigator.pop(context);
+                        Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                              builder: (context) => UserListPage(),
+                            ));
+                      },
+                      trailing: const Icon(
+                        Icons.arrow_back_ios_rounded,
+                        size: 16,
+                        textDirection: TextDirection.rtl,
+                      ),
+                    ),
+                    const Divider(),
+                    ListTile(
+                      leading: const Icon(Icons.design_services_outlined),
+                      title: const Text("Visual identity design"),
+                      onTap: () {
+                        Navigator.pop(context);
+                        Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                              builder: (context) => const VisualDesign(),
+                            ));
                       },
                       trailing: const Icon(
                         Icons.arrow_back_ios_rounded,

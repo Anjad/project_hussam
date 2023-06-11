@@ -4,8 +4,6 @@ import 'package:flutter/material.dart';
 import 'package:animated_splash_screen/animated_splash_screen.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
-import 'list.dart';
-
 class SplashScreen extends StatefulWidget {
   const SplashScreen({super.key});
 
@@ -29,7 +27,7 @@ class _SplashScreenState extends State<SplashScreen> {
       splashIconSize: 400,
       centered: true,
       splash: 'assets/images/Untitled-1-06-02.png',
-      nextScreen: !isLoggedIn ? const LoginPage() : UserListPage(),
+      nextScreen: !isLoggedIn ? const LoginPage() : const MainScreen(),
       splashTransition: SplashTransition.fadeTransition,
       animationDuration: const Duration(seconds: 2),
     );

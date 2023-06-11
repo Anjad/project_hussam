@@ -45,7 +45,7 @@ class _SingleUserState extends State<SingleUser> {
           children: <Widget>[
             Container(
               width: double.infinity,
-              decoration: BoxDecoration(
+              decoration: const BoxDecoration(
                   borderRadius: BorderRadius.only(
                       bottomLeft: Radius.circular(15),
                       bottomRight: Radius.circular(15)),
@@ -60,7 +60,7 @@ class _SingleUserState extends State<SingleUser> {
                       maxRadius: 40,
                     ),
                   ),
-                  SizedBox(
+                  const SizedBox(
                     height: 20,
                   ),
                   Text(
@@ -70,14 +70,14 @@ class _SingleUserState extends State<SingleUser> {
                         color: Colorsys.black,
                         fontWeight: FontWeight.bold),
                   ),
-                  SizedBox(
+                  const SizedBox(
                     height: 5,
                   ),
                   Text(
                     widget.user.username,
                     style: TextStyle(fontSize: 15, color: Colorsys.grey),
                   ),
-                  SizedBox(
+                  const SizedBox(
                     height: 20,
                   ),
                   Row(
@@ -95,7 +95,7 @@ class _SingleUserState extends State<SingleUser> {
                           count: widget.user.following, name: "Following"),
                     ],
                   ),
-                  SizedBox(
+                  const SizedBox(
                     height: 20,
                   ),
                   makeActionButtons()
@@ -334,7 +334,7 @@ class _SingleUserState extends State<SingleUser> {
                   onPressed: () {},
                   color: Colors.transparent,
                   child: Text(
-                    "Message",
+                    "Contact me",
                     style: TextStyle(
                         color: Colorsys.black, fontWeight: FontWeight.w400),
                   )),

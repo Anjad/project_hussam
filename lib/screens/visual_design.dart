@@ -1,4 +1,3 @@
-import 'package:circular_color_picker/circular_color_picker.dart';
 import 'package:e_commarce/data/Sample.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
@@ -7,14 +6,14 @@ import 'package:lottie/lottie.dart';
 import '../helper/Colorsys.dart';
 import '../widgets/circle_picker.dart';
 
-class ScrollableList extends StatefulWidget {
-  const ScrollableList({super.key});
+class VisualDesign extends StatefulWidget {
+  const VisualDesign({super.key});
 
   @override
-  _ScrollableListState createState() => _ScrollableListState();
+  _VisualDesignState createState() => _VisualDesignState();
 }
 
-class _ScrollableListState extends State<ScrollableList> {
+class _VisualDesignState extends State<VisualDesign> {
   ScrollController _scrollController = ScrollController();
   TextEditingController _textEditingController = TextEditingController();
   String _displayText = "";

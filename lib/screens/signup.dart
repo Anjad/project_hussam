@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:fluttertoast/fluttertoast.dart';
 
 import '../validation/validate.dart';
-import '../widgets/otp_widget.dart';
 import 'login.dart';
 
 class SignUp extends StatefulWidget {
