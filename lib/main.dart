@@ -1,6 +1,9 @@
 import 'package:e_commarce/helper/Colorsys.dart';
 import 'package:e_commarce/screens/main_screen.dart';
+import 'package:e_commarce/screens/splash_screen.dart';
 import 'package:flutter/material.dart';
+
+import 'screens/list.dart';
 
 void main() {
   runApp(
@@ -18,7 +21,7 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         primaryColor: Colorsys.orange,
       ),
-      home: const MainScreen(),
+      home: const SplashScreen(),
     );
   }
 }

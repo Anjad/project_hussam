@@ -154,7 +154,7 @@ class _LoginPageState extends State<LoginPage> {
       Navigator.pushReplacement(
           context,
           MaterialPageRoute(
-            builder: (context) => UserListPage(),
+            builder: (context) => const MainScreen(),
           ));
     } else {
       Fluttertoast.showToast(msg: "The phone or password not correct");
