@@ -1,5 +1,5 @@
-import 'package:e_commarce/screens/login.dart';
-import 'package:e_commarce/screens/main_screen.dart';
+import 'package:beehatrack/screens/login.dart';
+import 'package:beehatrack/screens/main_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:animated_splash_screen/animated_splash_screen.dart';
 import 'package:shared_preferences/shared_preferences.dart';

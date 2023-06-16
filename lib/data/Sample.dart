@@ -1,5 +1,5 @@
-import 'package:e_commarce/models/fav_data.dart';
-import 'package:e_commarce/models/fav_data_item.dart';
+import 'package:beehatrack/models/fav_data.dart';
+import 'package:beehatrack/models/fav_data_item.dart';
 
 import '../models/Collocation.dart';
 import '../models/Post.dart';

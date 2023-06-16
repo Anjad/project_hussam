@@ -1,4 +1,5 @@
-import 'package:e_commarce/data/Sample.dart';
+import 'package:circular_color_picker/circular_color_picker.dart';
+import 'package:beehatrack/data/Sample.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:lottie/lottie.dart';
@@ -18,14 +19,11 @@ class _VisualDesignState extends State<VisualDesign> {
   TextEditingController _textEditingController = TextEditingController();
   String _displayText = "";
   List<String> selectedColors = [];
-  Color reColor = Colors.red;
-
-  void changedColor() {
-    setState(() {
-      reColor = CircleColorPickerState().rc();
-      print("notify goooood");
-    });
-  }
+  late final ValueNotifier<Color> _chosenColor;
+  late int boxIndix;
+  Color container1 = Colors.red;
+  Color container2 = Colors.red;
+  Color container3 = Colors.red;
 
   void _updateText() {
     setState(() {
@@ -120,71 +118,160 @@ class _VisualDesignState extends State<VisualDesign> {
             backgroundColor: Colors.white,
             content: Padding(
               padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 16),
-              child: SingleChildScrollView(
-                child: ConstrainedBox(
-                  constraints: const BoxConstraints(
-                    maxWidth: 300.0,
-                    maxHeight: 400.0,
-                    minHeight: 200.0,
-                    minWidth: 300.0,
-                  ),
-                  child: SingleChildScrollView(
-                    child: Column(
-                      children: [
-                        Container(
-                          height: 300,
-                          width: 250,
-                          decoration: BoxDecoration(
-                            borderRadius: BorderRadius.circular(10),
-                            border: Border.all(color: Colors.grey),
-                          ),
-                          child: const Padding(
-                            padding: EdgeInsets.all(8.0),
-                            child: Center(
-                              child: CircleColorPicker(),
-                            ),
-                          ),
-                        ),
-                        const SizedBox(height: 20),
-                        Row(
-                          mainAxisAlignment: MainAxisAlignment.spaceAround,
+              child: StatefulBuilder(
+                builder: (context, setState) {
+                  return SingleChildScrollView(
+                    child: ConstrainedBox(
+                      constraints: const BoxConstraints(
+                        maxWidth: 300.0,
+                        maxHeight: 400.0,
+                        minHeight: 200.0,
+                        minWidth: 300.0,
+                      ),
+                      child: SingleChildScrollView(
+                        child: Column(
                           children: [
-                            InkWell(
-                              onTap: () {
-                                print(reColor.toString());
-                              },
-                              child: Container(
-                                height: 40,
-                                width: MediaQuery.of(context).size.width / 7,
-                                color: reColor,
+                            Container(
+                              height: 300,
+                              width: 250,
+                              decoration: BoxDecoration(
+                                borderRadius: BorderRadius.circular(10),
+                                border: Border.all(color: Colors.grey),
+                              ),
+                              child: Padding(
+                                padding: EdgeInsets.all(8.0),
+                                child: Center(
+                                  child: Container(
+                                    color: Colors.white,
+                                    child: Stack(
+                                      children: [
+                                        Center(
+                                          child: ClipRRect(
+                                            borderRadius:
+                                                BorderRadius.circular(12),
+                                            child: CircularColorPicker(
+                                              radius: 100,
+                                              pickerOptions:
+                                                  const CircularColorPickerOptions(
+                                                showBackground: true,
+                                                backgroundColor: Colors.white,
+                                                callOnChangeFunctionOnEnd:
+                                                    false,
+                                              ),
+                                              pickerDotOptions:
+                                                  const PickerDotOptions(
+                                                isInner: false,
+                                                borderWidth: 8,
+                                                shadows: [],
+                                              ),
+                                              onColorChange: (value) {
+                                                //
+                                                // change it as you want
+                                                //
+                                                _chosenColor.value = value;
+                                              },
+                                            ),
+                                          ),
+                                        ),
+                                        Align(
+                                          alignment: Alignment.topCenter,
+                                          child: Padding(
+                                            padding: const EdgeInsets.all(8.0),
+                                            child:
+                                                ValueListenableBuilder<Color>(
+                                              valueListenable: _chosenColor,
+                                              builder:
+                                                  (context, value, child) =>
+                                                      Container(
+                                                height: 20,
+                                                width: 40,
+                                                decoration: BoxDecoration(
+                                                  borderRadius:
+                                                      BorderRadius.circular(6),
+                                                  color: value,
+                                                ),
+                                              ),
+                                            ),
+                                          ),
+                                        ),
+                                      ],
+                                    ),
+                                  ),
+                                ),
                               ),
                             ),
-                            InkWell(
-                              onTap: () {
-                                print(reColor.toString());
-                              },
-                              child: Container(
-                                height: 40,
-                                width: MediaQuery.of(context).size.width / 7,
-                                color: Colors.red,
-                              ),
-                            ),
-                            InkWell(
-                              onTap: () {
-                                print(reColor.toString());
-                              },
-                              child: Container(
-                                height: 40,
-                                width: MediaQuery.of(context).size.width / 7,
-                                color: Colors.red,
-                              ),
+                            const SizedBox(height: 20),
+                            Row(
+                              mainAxisAlignment: MainAxisAlignment.spaceAround,
+                              children: [
+                                ValueListenableBuilder<Color>(
+                                  valueListenable: _chosenColor,
+                                  builder: (context, value, child) => InkWell(
+                                    onTap: () {
+                                      setState(
+                                        () {
+                                          boxIndix = 1;
+                                        },
+                                      );
+                                    },
+                                    child: Container(
+                                      height: 40,
+                                      width:
+                                          MediaQuery.of(context).size.width / 7,
+                                      color: boxIndix == 1
+                                          ? (container1 = value)
+                                          : container1,
+                                    ),
+                                  ),
+                                ),
+                                ValueListenableBuilder<Color>(
+                                  valueListenable: _chosenColor,
+                                  builder: (context, value, child) => InkWell(
+                                    onTap: () {
+                                      setState(
+                                        () {
+                                          boxIndix = 2;
+                                        },
+                                      );
+                                    },
+                                    child: Container(
+                                      height: 40,
+                                      width:
+                                          MediaQuery.of(context).size.width / 7,
+                                      color: boxIndix == 2
+                                          ? (container2 = value)
+                                          : container2,
+                                    ),
+                                  ),
+                                ),
+                                ValueListenableBuilder<Color>(
+                                  valueListenable: _chosenColor,
+                                  builder: (context, value, child) => InkWell(
+                                    onTap: () {
+                                      setState(
+                                        () {
+                                          boxIndix = 3;
+                                        },
+                                      );
+                                    },
+                                    child: Container(
+                                      height: 40,
+                                      width:
+                                          MediaQuery.of(context).size.width / 7,
+                                      color: boxIndix == 3
+                                          ? (container3 = value)
+                                          : container3,
+                                    ),
+                                  ),
+                                ),
+                              ],
                             ),
                           ],
                         ),
-                      ],
+                      ),
                     ),
-                  ),
-                ),
+                  );
+                },
               ),
             ),
             actions: <Widget>[
@@ -203,6 +290,7 @@ class _VisualDesignState extends State<VisualDesign> {
                 ),
                 onPressed: () {
                   Navigator.of(context).pop();
+                  boxIndix = -1;
                 },
               ),
             ],
@@ -317,6 +405,8 @@ class _VisualDesignState extends State<VisualDesign> {
   void initState() {
     super.initState();
     _scrollController.addListener(_scrollListener);
+    _chosenColor = ValueNotifier(const Color(0xFFFF0000));
+    boxIndix = -1;
   }
 
   @override

@@ -1,6 +1,6 @@
 import 'dart:ui';
-import 'package:e_commarce/screens/login.dart';
-import 'package:e_commarce/screens/profile_screen.dart';
+import 'package:beehatrack/screens/login.dart';
+import 'package:beehatrack/screens/profile_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import '../data/Sample.dart';

@@ -1,4 +1,3 @@
-import 'package:e_commarce/helper/Colorsys.dart';
 import 'package:flutter/material.dart';
 
 class Message {
@@ -59,7 +58,7 @@ class _MessagingPageState extends State<MessagingPage> {
                 final message = messages[index];
 
                 return Padding(
-                  padding: const EdgeInsets.symmetric(vertical: 4.0),
+                  padding: const EdgeInsets.all(4.0),
                   child: Row(
                     mainAxisAlignment: MainAxisAlignment.start,
                     crossAxisAlignment: CrossAxisAlignment.start,
@@ -67,7 +66,7 @@ class _MessagingPageState extends State<MessagingPage> {
                       CircleAvatar(
                         backgroundImage: AssetImage(message.avatarUrl),
                       ),
-                      SizedBox(width: 8.0),
+                      const SizedBox(width: 8.0),
                       Expanded(
                         child: Column(
                           crossAxisAlignment: CrossAxisAlignment.start,

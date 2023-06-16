@@ -1,5 +1,6 @@
 import 'dart:ui';
 
+import 'package:beehatrack/screens/massage_screen.dart';
 import 'package:flutter/material.dart';
 
 import '../helper/Colorsys.dart';
@@ -331,7 +332,13 @@ class _SingleUserState extends State<SingleUser> {
                   ),
                   height: double.infinity,
                   elevation: 0,
-                  onPressed: () {},
+                  onPressed: () {
+                    Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                          builder: (context) => MessagingPage(),
+                        ));
+                  },
                   color: Colors.transparent,
                   child: Text(
                     "Contact me",
