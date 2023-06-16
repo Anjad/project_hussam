@@ -1,18 +1,19 @@
+import 'package:e_commarce/screens/massage_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:pie_chart/pie_chart.dart';
 import '../helper/Colorsys.dart';
 import '../models/User.dart';
 
-class HomePage2 extends StatefulWidget {
+class WorkStatus extends StatefulWidget {
   User user;
-  HomePage2({super.key, required this.user});
+  WorkStatus({super.key, required this.user});
 
   @override
-  State<HomePage2> createState() => _HomePage2State();
+  State<WorkStatus> createState() => _WorkStatusState();
 }
 
-class _HomePage2State extends State<HomePage2> {
+class _WorkStatusState extends State<WorkStatus> {
   final dataMap = <String, double>{
     "work-done": 35,
     "work-remaining": 65,
@@ -295,7 +296,6 @@ class _HomePage2State extends State<HomePage2> {
                               chartType: ChartType.ring,
                               baseChartColor: Colors.red[50]!.withOpacity(0.15),
                               colorList: colorList,
-                              centerText: "format work",
                               legendOptions: const LegendOptions(
                                 showLegendsInRow: false,
                                 legendPosition: LegendPosition.bottom,
@@ -435,7 +435,12 @@ class _HomePage2State extends State<HomePage2> {
                   ),
                   height: double.infinity,
                   elevation: 0,
-                  onPressed: () {},
+                  onPressed: () {
+                    Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                            builder: (context) => MessagingPage()));
+                  },
                   color: Colors.transparent,
                   child: Text(
                     "Contact me",

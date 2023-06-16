@@ -2,6 +2,7 @@ import 'package:animated_background/animated_background.dart';
 import 'package:e_commarce/data/Sample.dart';
 import 'package:e_commarce/helper/Colorsys.dart';
 import 'package:e_commarce/models/User.dart';
+import 'package:e_commarce/screens/massage_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:pie_chart/pie_chart.dart';
@@ -337,7 +338,7 @@ class _UserListPageState extends State<UserListPage>
                       Navigator.push(
                         context,
                         MaterialPageRoute(
-                          builder: (context) => HomePage2(user: user),
+                          builder: (context) => WorkStatus(user: user),
                         ),
                       );
                       //onTapGridItem(user);
@@ -432,35 +433,41 @@ class _UserListPageState extends State<UserListPage>
   Widget makeActionButtons() {
     return Transform.translate(
       offset: Offset(0, 20),
-      child: Container(
-        height: 65,
-        padding: EdgeInsets.all(10),
-        margin: EdgeInsets.symmetric(horizontal: 50),
-        decoration: BoxDecoration(
-            borderRadius: BorderRadius.circular(5),
-            color: Colors.white,
-            boxShadow: const [
-              BoxShadow(
-                  color: Colors.grey, blurRadius: 20, offset: Offset(0, 10))
-            ]),
-        child: Row(
-          children: <Widget>[
-            Expanded(
-              child: MaterialButton(
-                  shape: RoundedRectangleBorder(
-                    borderRadius: BorderRadius.circular(5.0),
-                  ),
-                  height: double.infinity,
-                  elevation: 0,
-                  onPressed: () {},
-                  color: Colors.transparent,
-                  child: Text(
-                    "Contact me",
-                    style: TextStyle(
-                        color: Colorsys.black, fontWeight: FontWeight.w400),
-                  )),
-            )
-          ],
+      child: InkWell(
+        onTap: () {
+          Navigator.push(context,
+              MaterialPageRoute(builder: (context) => MessagingPage()));
+        },
+        child: Container(
+          height: 65,
+          padding: EdgeInsets.all(10),
+          margin: EdgeInsets.symmetric(horizontal: 50),
+          decoration: BoxDecoration(
+              borderRadius: BorderRadius.circular(5),
+              color: Colors.white,
+              boxShadow: const [
+                BoxShadow(
+                    color: Colors.grey, blurRadius: 20, offset: Offset(0, 10))
+              ]),
+          child: Row(
+            children: <Widget>[
+              Expanded(
+                child: MaterialButton(
+                    shape: RoundedRectangleBorder(
+                      borderRadius: BorderRadius.circular(5.0),
+                    ),
+                    height: double.infinity,
+                    elevation: 0,
+                    onPressed: () => {},
+                    color: Colors.transparent,
+                    child: Text(
+                      "Contact me",
+                      style: TextStyle(
+                          color: Colorsys.black, fontWeight: FontWeight.w400),
+                    )),
+              )
+            ],
+          ),
         ),
       ),
     );

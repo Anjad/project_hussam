@@ -18,6 +18,14 @@ class _VisualDesignState extends State<VisualDesign> {
   TextEditingController _textEditingController = TextEditingController();
   String _displayText = "";
   List<String> selectedColors = [];
+  Color reColor = Colors.red;
+
+  void changedColor() {
+    setState(() {
+      reColor = CircleColorPickerState().rc();
+      print("notify goooood");
+    });
+  }
 
   void _updateText() {
     setState(() {
@@ -130,35 +138,44 @@ class _VisualDesignState extends State<VisualDesign> {
                             borderRadius: BorderRadius.circular(10),
                             border: Border.all(color: Colors.grey),
                           ),
-                          child: Padding(
+                          child: const Padding(
                             padding: EdgeInsets.all(8.0),
                             child: Center(
                               child: CircleColorPicker(),
                             ),
                           ),
                         ),
-                        SizedBox(height: 20),
+                        const SizedBox(height: 20),
                         Row(
                           mainAxisAlignment: MainAxisAlignment.spaceAround,
                           children: [
                             InkWell(
+                              onTap: () {
+                                print(reColor.toString());
+                              },
                               child: Container(
                                 height: 40,
-                                width: 80,
+                                width: MediaQuery.of(context).size.width / 7,
+                                color: reColor,
+                              ),
+                            ),
+                            InkWell(
+                              onTap: () {
+                                print(reColor.toString());
+                              },
+                              child: Container(
+                                height: 40,
+                                width: MediaQuery.of(context).size.width / 7,
                                 color: Colors.red,
                               ),
                             ),
                             InkWell(
+                              onTap: () {
+                                print(reColor.toString());
+                              },
                               child: Container(
                                 height: 40,
-                                width: 80,
-                                color: Colors.red,
-                              ),
-                            ),
-                            InkWell(
-                              child: Container(
-                                height: 40,
-                                width: 80,
+                                width: MediaQuery.of(context).size.width / 7,
                                 color: Colors.red,
                               ),
                             ),

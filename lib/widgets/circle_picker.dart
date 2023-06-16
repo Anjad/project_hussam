@@ -2,7 +2,6 @@ import 'dart:async';
 import 'dart:math';
 
 import 'package:flutter/material.dart';
-import 'package:flutter/widgets.dart';
 
 typedef ColorCodeBuilder = Widget Function(BuildContext context, Color color);
 
@@ -87,15 +86,25 @@ class CircleColorPicker extends StatefulWidget {
   double get initialHue => HSLColor.fromColor(initialColor).hue;
 
   @override
-  _CircleColorPickerState createState() => _CircleColorPickerState();
+  CircleColorPickerState createState() => CircleColorPickerState();
 }
 
-class _CircleColorPickerState extends State<CircleColorPicker>
+class CircleColorPickerState extends State<CircleColorPicker>
     with TickerProviderStateMixin {
   late AnimationController _lightnessController;
   late AnimationController _hueController;
+  Color reColor = Colors.green;
+  @override
+  void setState(VoidCallback fn) {
+    reColor = colorString;
+    super.setState(fn);
+  }
 
-  Color get _color {
+  Color rc() {
+    return reColor;
+  }
+
+  Color get colorString {
     return HSLColor.fromAHSL(
       1,
       _hueController.value,
@@ -132,9 +141,9 @@ class _CircleColorPickerState extends State<CircleColorPicker>
                       mainAxisSize: MainAxisSize.min,
                       children: <Widget>[
                         widget.colorCodeBuilder != null
-                            ? widget.colorCodeBuilder!(context, _color)
+                            ? widget.colorCodeBuilder!(context, colorString)
                             : Text(
-                                '#${_color.value.toRadixString(16).substring(2)}',
+                                '#${colorString.value.toRadixString(16).substring(2)}',
                                 style: widget.textStyle,
                               ),
                         const SizedBox(height: 16),
@@ -142,11 +151,11 @@ class _CircleColorPickerState extends State<CircleColorPicker>
                           width: 64,
                           height: 64,
                           decoration: BoxDecoration(
-                            color: _color,
+                            color: colorString,
                             shape: BoxShape.circle,
                             border: Border.all(
                               width: 3,
-                              color: HSLColor.fromColor(_color)
+                              color: HSLColor.fromColor(colorString)
                                   .withLightness(
                                     _lightnessController.value * 4 / 5,
                                   )
@@ -180,6 +189,7 @@ class _CircleColorPickerState extends State<CircleColorPicker>
   @override
   void initState() {
     super.initState();
+    print("$reColor" "\ninitial state");
     _hueController = AnimationController(
       vsync: this,
       value: widget.initialHue,
@@ -202,19 +212,25 @@ class _CircleColorPickerState extends State<CircleColorPicker>
   }
 
   void _onColorChanged() {
-    widget.onChanged?.call(_color);
-    widget.controller?.color = _color;
+    widget.onChanged?.call(colorString);
+    widget.controller?.color = colorString;
+    setState(() {
+      reColor = colorString;
+    });
+    print("$reColor" "\nonChange color");
   }
 
   void _onEnded() {
-    widget.onEnded?.call(_color);
+    widget.onEnded?.call(colorString);
   }
 
   void _setColor() {
-    if (widget.controller != null && widget.controller!.color != _color) {
+    if (widget.controller != null && widget.controller!.color != colorString) {
       final hslColor = HSLColor.fromColor(widget.controller!.color);
       _hueController.value = hslColor.hue;
       _lightnessController.value = hslColor.lightness;
+      reColor = colorString;
+      print("$reColor" "\nset color");
     }
   }
 }
